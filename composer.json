@@ -23,6 +23,7 @@
     },
     "require-dev": {
         "friends-of-behat/symfony-extension": "^2.3",
+        "phpunit/phpunit": "^9.5",
         "symfony/maker-bundle": "^1.43"
     },
     "config": {
