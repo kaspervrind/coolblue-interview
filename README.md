@@ -14,7 +14,8 @@ There is only 2 hours available so I have to focus on many issues 😉.
 The time starts at this commit.
 
 Steps taken:
-# 
+# move Symfony projectfiles into the project
+# composer update
 
 
 # Coolblue interview assignment
