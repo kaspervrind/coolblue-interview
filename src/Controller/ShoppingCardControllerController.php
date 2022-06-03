@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace Coolblue\Interview\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ShoppingCardControlerController extends AbstractController
+class ShoppingCardControllerController extends AbstractController
 {
     #[Route('/shopping/card/controler', name: 'app_shopping_card_controler')]
     public function index(): JsonResponse
