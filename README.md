@@ -16,6 +16,13 @@ The time starts at this commit.
 Steps taken:
 # move Symfony projectfiles into the project
 # composer update
+# composer require --dev symfony/maker-bundle
+# symfony console make:controller
+# composer require --dev friends-of-behat/symfony-extension -W
+# mkdir -p tools/php-cs-fixer && composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+# run behat: `vendor/bin/behat`
+
+I have to take a break now. I will finish up later.
 
 
 # Coolblue interview assignment
