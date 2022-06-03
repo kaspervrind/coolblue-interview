@@ -15,17 +15,12 @@ use Symfony\Component\HttpKernel\KernelInterface;
  *
  * @see http://behat.org/en/latest/quick_start.html
  */
-final class DemoContext implements Context
+final class ShoppingCardContext implements Context
 {
-    /** @var KernelInterface */
-    private $kernel;
+    private ?Response $response;
 
-    /** @var Response|null */
-    private $response;
-
-    public function __construct(KernelInterface $kernel)
+    public function __construct(private readonly KernelInterface $kernel)
     {
-        $this->kernel = $kernel;
     }
 
     /**
@@ -41,7 +36,7 @@ final class DemoContext implements Context
      */
     public function theResponseShouldBeReceived(): void
     {
-        if ($this->response === null) {
+        if (null === $this->response) {
             throw new \RuntimeException('No response received');
         }
     }
