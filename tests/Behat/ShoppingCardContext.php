@@ -8,13 +8,8 @@ use Behat\Behat\Context\Context;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
+use Webmozart\Assert\Assert;
 
-/**
- * This context class contains the definitions of the steps used by the demo
- * feature file. Learn how to get started with Behat and BDD on Behat's website.
- *
- * @see http://behat.org/en/latest/quick_start.html
- */
 final class ShoppingCardContext implements Context
 {
     private ?Response $response;
@@ -24,7 +19,7 @@ final class ShoppingCardContext implements Context
     }
 
     /**
-     * @When a demo scenario sends a request to :path
+     * @When I go to :path
      */
     public function aDemoScenarioSendsARequestTo(string $path): void
     {
@@ -32,12 +27,10 @@ final class ShoppingCardContext implements Context
     }
 
     /**
-     * @Then the response should be received
+     * @Then I should see :text
      */
-    public function theResponseShouldBeReceived(): void
+    public function thenIShouldSee(string $text): void
     {
-        if (null === $this->response) {
-            throw new \RuntimeException('No response received');
-        }
+        Assert::contains($text, $this->response->getContent());
     }
 }
