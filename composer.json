@@ -22,9 +22,11 @@
         "symfony/yaml": "6.1.*"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-latest",
+        "friends-of-behat/mink": "^1.10",
+        "friends-of-behat/mink-extension": "^2.6",
         "friends-of-behat/symfony-extension": "^2.3",
         "phpunit/phpunit": "^9.5",
+        "roave/security-advisories": "dev-latest",
         "symfony/maker-bundle": "^1.43"
     },
     "config": {

@@ -21,6 +21,9 @@ services:
     build: ./docker/php
     volumes:
       - ./:/app
+      - ./.env:/app
+      - ./.env.test:/app
+      - ./behat.yml:/app
     ports:
       - '9000:9000'
 
@@ -41,3 +44,12 @@ services:
       - '8080:80'
     links:
       - interview_php
+
+  browser-testing:
+    hostname: browser
+    image: selenium/standalone-chrome:101.0
+    command: /usr/bin/google-chrome-stable --disable-gpu --headless --remote-debugging-address=0.0.0.0 --remote-debugging-port=5900 --window-size=1920,1080 --ignore-certificate-errors --allow-running-insecure-content --disable-web-security
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "${BROWSER_TESTING_PORT:-5900}:5900"
