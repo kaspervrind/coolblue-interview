@@ -2,18 +2,39 @@
 
 namespace Coolblue\Interview\Controller;
 
+use Coolblue\Interview\Entity\ShoppingCart;
+use Coolblue\Interview\Repository\ShoppingCartRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ShoppingCardControllerController extends AbstractController
 {
-    #[Route('/card', name: 'app_shopping_card_controler')]
-    public function index(): JsonResponse
+    private ShoppingCart $cart;
+
+    public function __construct()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ShoppingCardControlerController.php',
-        ]);
+        $this->cart = (new ShoppingCartRepository())->getShoppingCart(($_GET["cartid"]) ? $_GET["cartid"] : 1);
+    }
+
+    #[Route('/card', name: 'app_shopping_card_controler')]
+    public function index(): string
+    {
+        return $this->renderCard();
+    }
+
+    /**
+     * @return string
+     */
+    public function renderCard(): string
+    {
+        ob_start();
+
+        require __DIR__ . '/../template/cart.tpl';
+
+        $result = ob_get_contents();
+        ob_clean();
+
+        return $result;
     }
 }
