@@ -22,8 +22,7 @@ Steps taken:
 # mkdir -p tools/php-cs-fixer && composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
 # run behat: `vendor/bin/behat`
 
-I have to take a break now. I will finish up later.
-
+And back again for some more work. I have to do it while making a production release 😆 (version 5.0.0 😀).
 
 # Coolblue interview assignment
 
