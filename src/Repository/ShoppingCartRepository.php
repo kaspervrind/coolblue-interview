@@ -20,8 +20,12 @@ class ShoppingCartRepository
 
     public function getShoppingCart(string $shoppingCartSlug): ShoppingCart
     {
-        $stmt = $this->connection->query("select * from shoppingcart where shoppingcartslug = '$shoppingCartSlug'");
+        // less than ideal check but it gives an idea.
+        $shoppingCartSlug = preg_replace('/\W/', '', $shoppingCartSlug);
+        $stmt = $this->connection->prepare('select * from shoppingcart where shoppingcartslug = :slug');
 
+        $stmt->bindParam('slug', $shoppingCartSlug);
+        $stmt->execute();
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         if (!$result) {
             throw new CartNotFoundFoundException(sprintf('Cart not found with id [%s]', $shoppingCartSlug));
