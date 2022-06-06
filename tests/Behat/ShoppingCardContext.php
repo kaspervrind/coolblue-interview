@@ -31,6 +31,6 @@ final class ShoppingCardContext implements Context
      */
     public function thenIShouldSee(string $text): void
     {
-        Assert::contains($text, $this->response->getContent());
+        Assert::contains($this->response->getContent(), $text);
     }
 }
