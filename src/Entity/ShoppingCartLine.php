@@ -1,18 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Coolblue\Interview\Entity;
 
 final class ShoppingCartLine
 {
-    /** @var int */
-    private $shoppingCartLineId;
-
+    private int $shoppingCartLineId;
     /** @var ShoppingCartItem[] */
-    private $items = [];
+    private array $items = [];
 
     /**
-     * @param int $shoppingCartLineId
      * @param ShoppingCartItem[] $items
      */
     public function __construct(int $shoppingCartLineId, array $items)
@@ -21,9 +19,6 @@ final class ShoppingCartLine
         array_walk($items, [$this, 'addItem']);
     }
 
-    /**
-     * @return int
-     */
     public function getShoppingCartLineId(): int
     {
         return $this->shoppingCartLineId;
@@ -37,10 +32,6 @@ final class ShoppingCartLine
         return $this->items;
     }
 
-    /**
-     * @param ShoppingCartItem $item
-     * @return ShoppingCartLine
-     */
     public function addItem(ShoppingCartItem $item): self
     {
         $this->items[] = $item;
