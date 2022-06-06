@@ -29,6 +29,10 @@ I now will continue to finish up this task. Only one hour left and much to do ðŸ
 I have chosen this one because it's close to Mysql so upgrading won't be hard. I have to fix the behat tests to to run it in the docker setup.
 I will have a look at the PHP classes afterwards and improve the thing a bit. I saw a security issue over there which needs my attention.
 
+
+
+------------
+
 # Coolblue interview assignment
 
 Welcome to the Coolblue interview assignment. 

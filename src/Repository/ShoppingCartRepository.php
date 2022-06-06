@@ -18,13 +18,13 @@ class ShoppingCartRepository
         $this->connection = new \PDO('mysql:host=interview_mysql;dbname=coolblue', 'interview', 'interview');
     }
 
-    public function getShoppingCart(int $shoppingCartId): ShoppingCart
+    public function getShoppingCart(string $shoppingCartSlug): ShoppingCart
     {
-        $stmt = $this->connection->query("select * from shoppingcart where shoppingcartid = $shoppingCartId");
+        $stmt = $this->connection->query("select * from shoppingcart where shoppingcartslug = '$shoppingCartSlug'");
 
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         if (!$result) {
-            throw new CartNotFoundFoundException(sprintf('Cart not found with id [%d]', $shoppingCartId));
+            throw new CartNotFoundFoundException(sprintf('Cart not found with id [%s]', $shoppingCartSlug));
         }
         $shoppingCartId = (int) $result['shoppingcartid'];
 

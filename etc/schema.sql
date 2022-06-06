@@ -1,5 +1,6 @@
 CREATE TABLE shoppingcart (
     shoppingcartid int not null auto_increment,
+    shoppingcartslug varchar(32),
     primary key (`shoppingcartid`)
 );
 
@@ -21,7 +22,7 @@ CREATE TABLE shoppingcart_item (
     foreign key shoppingcartitem(`shoppingcartlineid`) references shoppingcart_line(`shoppingcartlineid`)
 );
 
-INSERT INTO shoppingcart (shoppingcartid) VALUES(1);
+INSERT INTO shoppingcart (shoppingcartid, shoppingcartslug) VALUES(1, 'a959fe88187df420dd3c7a2226c7da96');
 
 INSERT INTO shoppingcart_line (shoppingcartlineid, shoppingcartid) VALUES (1, 1);
 INSERT INTO shoppingcart_line (shoppingcartlineid, shoppingcartid) VALUES (2, 1);

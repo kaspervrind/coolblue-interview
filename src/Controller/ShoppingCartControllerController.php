@@ -16,10 +16,11 @@ class ShoppingCartControllerController extends AbstractController
     #[Route('/cart', name: 'app_shopping_cart_controler')]
     public function index(Request $request): Response
     {
-        return $this->renderCard($request->get('cartid', 1));
+        // I have set the default to the first one but this has to change of course to a session value or a profile setting.
+        return $this->renderCard($request->get('cartid', 'a959fe88187df420dd3c7a2226c7da96'));
     }
 
-    public function renderCard($cartId): Response
+    public function renderCard(string $cartId): Response
     {
         // TODO hacky but alright for now
         // TODO add error handling
