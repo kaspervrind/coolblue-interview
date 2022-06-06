@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Webmozart\Assert\Assert;
 
-final class ShoppingCardContext implements Context
+final class ShoppingCartContext implements Context
 {
     private ?Response $response;
 

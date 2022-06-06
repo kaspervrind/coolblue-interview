@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ShoppingCardControllerController extends AbstractController
+class ShoppingCartControllerController extends AbstractController
 {
     private ShoppingCart $cart;
 
-    #[Route('/card', name: 'app_shopping_card_controler')]
+    #[Route('/cart', name: 'app_shopping_cart_controler')]
     public function index(Request $request): Response
     {
         return $this->renderCard($request->get('cartid', 1));

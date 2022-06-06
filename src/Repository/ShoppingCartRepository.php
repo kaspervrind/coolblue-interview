@@ -7,6 +7,7 @@ namespace Coolblue\Interview\Repository;
 use Coolblue\Interview\Entity\ShoppingCart;
 use Coolblue\Interview\Entity\ShoppingCartItem;
 use Coolblue\Interview\Entity\ShoppingCartLine;
+use Coolblue\Interview\Exception\CartNotFoundFoundException;
 
 class ShoppingCartRepository
 {
@@ -22,6 +23,9 @@ class ShoppingCartRepository
         $stmt = $this->connection->query("select * from shoppingcart where shoppingcartid = $shoppingCartId");
 
         $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+        if (!$result) {
+            throw new CartNotFoundFoundException(sprintf('Cart not found with id [%d]', $shoppingCartId));
+        }
         $shoppingCartId = (int) $result['shoppingcartid'];
 
         return new ShoppingCart(
