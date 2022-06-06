@@ -22,6 +22,7 @@ class ShoppingCartControllerController extends AbstractController
     public function renderCard($cartId): Response
     {
         // TODO hacky but alright for now
+        // TODO add error handling
         $this->cart = (new ShoppingCartRepository())->getShoppingCart($cartId);
 
         ob_start();
