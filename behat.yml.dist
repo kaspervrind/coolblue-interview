@@ -1,0 +1,14 @@
+default:
+    suites:
+        shoppingCard:
+            paths: [ "%paths.base%/tests/Behat" ]
+            contexts:
+                - App\Tests\Behat\ShoppingCartContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: tests/bootstrap.php
+            kernel:
+                path: "src/Kernel.php"
+                class: Coolblue\Interview\Kernel
+
