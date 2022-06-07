@@ -14,13 +14,13 @@ There is only 2 hours available so I have to focus on many issues 😉.
 The time starts at this commit.
 
 Steps taken:
-# move Symfony projectfiles into the project
-# composer update
-# composer require --dev symfony/maker-bundle
-# symfony console make:controller
-# composer require --dev friends-of-behat/symfony-extension -W
-# mkdir -p tools/php-cs-fixer && composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
-# run behat: `docker-compose exec interview_php /app/vendor/bin/behat`
+* move Symfony projectfiles into the project
+* composer update
+* composer require --dev symfony/maker-bundle
+* symfony console make:controller
+* composer require --dev friends-of-behat/symfony-extension -W
+* mkdir -p tools/php-cs-fixer && composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+* run behat: `docker-compose exec interview_php /app/vendor/bin/behat`
 
 And back again for some more work. I have to do it while making a production release 😆 (version 5.0.0 😀). 
 Had a call, I will finish up later
